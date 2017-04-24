@@ -22,8 +22,15 @@ public class ItemUI {
     private JButton saveButton;
     private JButton cancelButton;
 
+    public static void main(String[] args){
+        JFrame frame = new JFrame("ItemUI");
+        frame.setContentPane(new ItemUI().Jpanel2);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
 
-    public ItemUI()
+    public void ItemUI()
     {
         saveButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -46,10 +53,10 @@ public class ItemUI {
                     dialog.setVisible(true);
                     return;
                 }
-                saveInput[0] = Integer.toString(id);
+                saveInput[1] = Integer.toString(id);
 
                 String name2 = item2name.getText();
-                saveInput[0] = name2;
+                saveInput[2] = name2;
 
                 int id1 = 0;
                 try
@@ -63,10 +70,10 @@ public class ItemUI {
                     dialog.setVisible(true);
                     return;
                 }
-                saveInput[0] = Integer.toString(id);
+                saveInput[3] = Integer.toString(id);
 
                 String name3 = item3name.getText();
-                saveInput[0] = name3;
+                saveInput[4] = name3;
 
                 int id3 = 0;
                 try
@@ -80,10 +87,10 @@ public class ItemUI {
                     dialog.setVisible(true);
                     return;
                 }
-                saveInput[0] = Integer.toString(id);
+                saveInput[5] = Integer.toString(id);
 
                 String name4 = item4name.getText();
-                saveInput[0] = name4;
+                saveInput[6] = name4;
 
                 int id4 = 0;
                 try
@@ -97,10 +104,10 @@ public class ItemUI {
                     dialog.setVisible(true);
                     return;
                 }
-                saveInput[0] = Integer.toString(id);
+                saveInput[7] = Integer.toString(id);
 
                 String name5 = item5name.getText();
-                saveInput[0] = name5;
+                saveInput[8] = name5;
 
             }
         });
