@@ -13,6 +13,7 @@ public class EnterMarkUI {
     private JButton nextStudentBtn;
     private JButton saveBtn;
     private JButton previousStudentBtn;
+    private JButton logoutButton;
 
     public static void main(String[] args){
         JFrame frame = new JFrame("EnterMarkUI");
