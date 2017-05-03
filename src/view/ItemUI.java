@@ -21,10 +21,14 @@ public class ItemUI {
     private JTextField item5per;
     private JButton saveButton;
     private JButton cancelButton;
+    private JLabel itemGroupID;
+    private JLabel groupIdTF;
+    private JLabel totalPercentTF;
+    private JPanel JPanel1;
 
     public static void main(String[] args){
         JFrame frame = new JFrame("ItemUI");
-        frame.setContentPane(new ItemUI().Jpanel2);
+        frame.setContentPane(new ItemUI().JPanel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
