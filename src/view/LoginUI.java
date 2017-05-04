@@ -19,9 +19,13 @@ public class LoginUI implements IModelListener {
     private ModelLogin ml;
     private ControllerLogin cl;
 
+    public void LoginUI() {
+
+    }
+
     public void initLoginUI() {
         JFrame frame = new JFrame("LoginUI");
-        frame.setContentPane(new LoginUI().loginPanel);
+        frame.setContentPane(this.loginPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

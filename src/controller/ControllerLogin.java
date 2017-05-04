@@ -13,6 +13,8 @@ public class ControllerLogin {
     }
 
     public boolean checkPwd(String pwd) {
-        return ml.checkPwd(pwd);
+        // TODO: Bug fix: Unreachable statement.
+        boolean modelCheckResult = ml.checkPwd(pwd);
+        return modelCheckResult;
     }
 }
