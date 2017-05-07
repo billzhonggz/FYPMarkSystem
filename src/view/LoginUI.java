@@ -51,9 +51,6 @@ public class LoginUI implements IModelListener {
     }
 
     public void notifyModelListener() {
-        if (pwdStatus == 1)
-            statusLabel.setText("Login success.");
-        else
-            statusLabel.setText("Login failed.");
+        statusLabel.setText("Login success.");
     }
 }

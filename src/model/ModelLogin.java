@@ -18,7 +18,6 @@ public class ModelLogin {
 
     public ModelLogin() {
         // Load database.
-        conn = null;
         s = new SQLiteAccess(conn);
     }
 

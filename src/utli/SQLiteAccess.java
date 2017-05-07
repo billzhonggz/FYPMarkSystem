@@ -12,6 +12,7 @@ public class SQLiteAccess {
 
     public SQLiteAccess(Connection c) {
         this.c = c;
+        this.connectSQLite();
     }
 
     public boolean connectSQLite() {
