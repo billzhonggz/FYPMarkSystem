@@ -11,7 +11,6 @@ public class Initializer {
         ModelLogin ml = new ModelLogin();
         ControllerLogin cl = new ControllerLogin(ml);
         LoginUI lu = new LoginUI();
-
         lu.setMVC(ml, cl);
         lu.initLoginUI();
     }

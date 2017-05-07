@@ -7,11 +7,10 @@ import java.sql.*;
  * Created by ZHONG on 2017/4/22.
  */
 public class SQLiteAccess {
-    private Connection c = null;
+    private Connection c;
     private Statement stmt = null;
 
-    public SQLiteAccess(Connection c) {
-        this.c = c;
+    public SQLiteAccess() {
         this.connectSQLite();
     }
 
@@ -26,7 +25,7 @@ public class SQLiteAccess {
             e.printStackTrace();
             return false;
         }
-        System.out.println("Connected successfully.");
+        System.out.println("SQLite connected successfully.");
         return true;
     }
 

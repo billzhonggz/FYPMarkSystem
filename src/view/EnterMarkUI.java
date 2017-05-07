@@ -15,9 +15,9 @@ public class EnterMarkUI {
     private JButton previousStudentBtn;
     private JButton logoutButton;
 
-    public static void main(String[] args){
+    public EnterMarkUI(){
         JFrame frame = new JFrame("EnterMarkUI");
-        frame.setContentPane(new EnterMarkUI().EnterMarkPanel);
+        frame.setContentPane(this.EnterMarkPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

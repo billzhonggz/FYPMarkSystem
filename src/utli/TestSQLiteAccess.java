@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class TestSQLiteAccess {
     public static void main(String[] args) {
         Connection c = null;
-        SQLiteAccess s = new SQLiteAccess(c);
+        SQLiteAccess s = new SQLiteAccess();
         s.connectSQLite();
         try {
             //s.execSqlNoReturn("CREATE TABLE user(id INT PRIMARY KEY, password TEXT NOT NULL)");

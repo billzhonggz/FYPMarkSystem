@@ -13,9 +13,19 @@ public class ControllerLogin {
     }
 
     public boolean checkPwd(String pwd) {
-        // TODO: Bug fix: Unreachable statement.
         boolean modelCheckResult = ml.checkPwd(pwd);
         return modelCheckResult;
+    }
+
+    public void forwardToNext() {
+        // Check evaluation group.
+        boolean existence = ml.checkGroupExistence();
+        if (existence)
+            // TODO: Forward to EnterMarkUI.
+        {}
+        else
+            // TODO: Forward to ItemUI.
+        {}
     }
 
 }

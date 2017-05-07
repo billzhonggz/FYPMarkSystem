@@ -18,7 +18,7 @@ public class ModelLogin {
 
     public ModelLogin() {
         // Load database.
-        s = new SQLiteAccess(conn);
+        s = new SQLiteAccess();
     }
 
     public void setView(IModelListener view) {
@@ -54,6 +54,25 @@ public class ModelLogin {
         }
         this.closeDB();
         return false;
+    }
+
+    public boolean checkGroupExistence() {
+        // Do query for row count of table "evaluation_group".
+        int groupCount = 0;
+        try {
+            ResultSet rs = s.execSqlWithReturn("SELECT COUNT(*) FROM evaluation_groups;");
+            while (rs.next()) {
+                groupCount = rs.getInt(0);
+            }
+        } catch (SQLiteConnectionInvalidException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (groupCount != 0)
+            return true;
+        else
+            return false;
     }
 
     public void closeDB() {
