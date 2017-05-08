@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by admin on 2017/4/22.
  */
-public class ItemUI {
+public class AddItemUI {
     private JTextField item1name;
     private JTextField item1per;
     private JTextField item2name;
@@ -27,15 +27,21 @@ public class ItemUI {
     private JPanel JPanel1;
 
     public static void main(String[] args){
-        JFrame frame = new JFrame("ItemUI");
-        frame.setContentPane(new ItemUI().JPanel1);
+        JFrame frame = new JFrame("AddItemUI");
+        frame.setContentPane(new AddItemUI().JPanel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
     }
 
-    public void ItemUI()
+    public AddItemUI()
     {
+        JFrame frame = new JFrame("AddItemUI");
+        frame.setContentPane(this.JPanel1);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+
         saveButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                String[] saveInput = new String[20];

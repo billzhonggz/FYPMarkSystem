@@ -44,6 +44,7 @@ public class LoginUI implements IModelListener {
                 if (cl.checkPwd(pwd)) {
                     pwdStatus = 1;
                     // TODO: Forward to the next page.
+                    cl.forwardToNext();
                 } else
                     pwdStatus = 0;
             }

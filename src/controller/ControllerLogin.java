@@ -1,6 +1,7 @@
 package controller;
 
 import model.ModelLogin;
+import view.AddItemUI;
 
 /**
  * Created by ZHONG on 2017/5/3.
@@ -23,9 +24,10 @@ public class ControllerLogin {
         if (existence)
             // TODO: Forward to EnterMarkUI.
         {}
-        else
-            // TODO: Forward to ItemUI.
-        {}
+        else {
+            // TODO: Forward to AddItemUI.
+            AddItemUI addItemUI = new AddItemUI();
+        }
     }
 
 }

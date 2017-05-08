@@ -32,27 +32,27 @@ public class ModelLogin {
                 String pwdDB = rs.getString("password");
                 // Determine password is correct or not.
                 if (pwd.equals(pwdDB)) {
-                    this.closeDB();
+                    //this.closeDB();
                     this.notifyAllListeners();
                     return true;
                 } else {
-                    this.closeDB();
+                    //this.closeDB();
                     this.notifyAllListeners();
                     return false;
                 }
             }
         } catch (SQLiteConnectionInvalidException e) {
             e.printStackTrace();
-            this.closeDB();
+            //this.closeDB();
             this.notifyAllListeners();
             return false;
         } catch (SQLException e) {
             e.printStackTrace();
-            this.closeDB();
+            //this.closeDB();
             this.notifyAllListeners();
             return false;
         }
-        this.closeDB();
+        //this.closeDB();
         return false;
     }
 
