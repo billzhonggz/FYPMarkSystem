@@ -37,17 +37,19 @@ public class Item {
         int id = 0;
         try {
             // Add this item to db.
-            s.execSqlNoReturn("INSERT INTO evaluation_items(name, percentage) VALUES(" + this.itemName + "," + this.itemPercentage + ");");
+            String sql = "INSERT INTO evaluation_items(name, percentage) VALUES(" + this.itemName + "," + this.itemPercentage + ");";
+            s.execSqlNoReturn(sql);
             // Get id.
-            ResultSet rs = s.execSqlWithReturn("SELECT LAST_INSERT_ROWID()");
+            ResultSet rs = s.execSqlWithReturn("SELECT MAX(id) FROM evaluation_items;");
             while (rs.next()) {
-                id = rs.getInt(0);
+                id = rs.getInt("MAX(id)");
             }
         } catch (SQLiteConnectionInvalidException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        s.closeConnection();
         return id;
     }
 }

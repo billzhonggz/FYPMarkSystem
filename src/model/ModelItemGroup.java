@@ -2,7 +2,6 @@ package model;
 
 import utli.SQLiteAccess;
 import utli.SQLiteConnectionInvalidException;
-import view.AddItemUI;
 import view.ErrInfo;
 import view.IModelListener;
 
@@ -54,28 +53,16 @@ public class ModelItemGroup {
             ids[i] = items.get(i).addItemToDbReturnId();
         }
         // Second: Insert item id to group, return group id.
-        // Initialize a String array with empty value.
-        String[] strIds = new String[5];
-        for (int i = 0; i < 5; i++)
-            strIds[i] = "";
-        if (ids.length > 0 && ids.length < 5) {
-            for (int i = 0; i < ids.length; i++) {
-                try {
-                    strIds[i] = Integer.toString(ids[i]);
-                } catch (Exception e) {
-                    break;
-                }
-            }
-        }
         try {
-            s.execSqlNoReturn("INSERT INTO evaluation_groups(item1_id,item2_id,item3_id,item4_id,item5_id) VALUES(" +
-                    strIds[0] + "," + strIds[1] + "," + strIds[2] + "," + strIds[3] + "," + strIds[4] + "," + strIds[5] + ");");
+            String sql = "INSERT INTO evaluation_groups(item1_id,item2_id,item3_id,item4_id,item5_id) VALUES(" +
+                    ids[0] + "," + ids[1] + "," + ids[2] + "," + ids[3] + "," + ids[4]  + ");";
+            s.execSqlNoReturn(sql);
         } catch (SQLiteConnectionInvalidException e) {
             e.printStackTrace();
         }
         // Return group id.
         try {
-            ResultSet rs = s.execSqlWithReturn("SELECT LAST_INSERT_ROWID()");
+            ResultSet rs = s.execSqlWithReturn("SELECT MAX(id) FROM evaluation_groups;");
             while (rs.next()) {
                 groupId = rs.getInt(0);
             }

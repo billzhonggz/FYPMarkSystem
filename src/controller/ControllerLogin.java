@@ -31,6 +31,7 @@ public class ControllerLogin {
             ControllerItemGroup cig = new ControllerItemGroup(mig);
             AddItemUI addItemUI = new AddItemUI();
             addItemUI.setMVC(mig, cig);
+            ml.closeDB();
         }
     }
 

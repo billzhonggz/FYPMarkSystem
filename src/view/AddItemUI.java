@@ -13,7 +13,8 @@ import java.awt.event.ActionListener;
 /**
  * Created by admin on 2017/4/22.
  */
-public class AddItemUI implements IModelListener{
+public class AddItemUI implements IModelListener {
+    private final int[] percents = new int[5];
     private JTextField item1name;
     private JTextField item1per;
     private JTextField item2name;
@@ -31,42 +32,10 @@ public class AddItemUI implements IModelListener{
     private JLabel groupIdTF;
     private JLabel totalPercentTF;
     private JPanel JPanel1;
-    private final int[] percents = new int[5];
     private ModelItemGroup mig;
     private ControllerItemGroup cig;
 
-    public static void main(String[] args){
-        JFrame frame = new JFrame("AddItemUI");
-        frame.setContentPane(new AddItemUI().JPanel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-    }
-
-    private void calcPreSum() {
-        int sum = 0;
-        for(int a : percents) {
-            sum += a;
-        }
-        totalPercentTF.setText(Integer.toString(sum));
-        if (sum > 100)
-            totalPercentTF.setForeground(Color.RED);
-        if (sum == 100)
-            saveButton.setEnabled(true);
-    }
-
-    public void setMVC(ModelItemGroup mig, ControllerItemGroup cig) {
-        this.mig = mig;
-        this.cig = cig;
-        mig.setView(this);
-    }
-
-    public void notifyModelListener() {
-        groupIdTF.setText(Integer.toString(mig.getGroupId()));
-    }
-
-    public AddItemUI()
-    {
+    public AddItemUI() {
         JFrame frame = new JFrame("AddItemUI");
         frame.setContentPane(this.JPanel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -163,93 +132,75 @@ public class AddItemUI implements IModelListener{
 
         saveButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               String[] saveInput = new String[20];
-
-               //get itemname
-               String name1 = item1name.getText();
-               saveInput[0] = name1;
-
-               //get percentage
+                //get itemname
+                String name1 = item1name.getText();
+                //get percentage
                 int id1 = 0;
-                try
-                {
-                    id1 = Integer.parseInt((String)item1per.getText());
-                } catch (NumberFormatException e1)
-                {
+                try {
+                    id1 = Integer.parseInt((String) item1per.getText());
+                } catch (NumberFormatException e1) {
                     e1.printStackTrace();
                     ErrInfo dialog = new ErrInfo("Item 1 percentage is not integer.");
                     dialog.pack();
                     dialog.setVisible(true);
                     return;
                 }
-                saveInput[1] = Integer.toString(id1);
+                cig.addItemToList(name1, id1);
 
                 String name2 = item2name.getText();
-                saveInput[2] = name2;
-
                 int id2 = 0;
-                try
-                {
-                    id2 = Integer.parseInt((String)item2per.getText());
-                } catch (NumberFormatException e1)
-                {
+                try {
+                    id2 = Integer.parseInt((String) item2per.getText());
+                } catch (NumberFormatException e1) {
                     e1.printStackTrace();
                     ErrInfo dialog = new ErrInfo("Item 2 percentage is not integer.");
                     dialog.pack();
                     dialog.setVisible(true);
                     return;
                 }
-                saveInput[3] = Integer.toString(id2);
+                cig.addItemToList(name2, id2);
 
                 String name3 = item3name.getText();
-                saveInput[4] = name3;
-
                 int id3 = 0;
-                try
-                {
-                    id3 = Integer.parseInt((String)item3per.getText());
-                } catch (NumberFormatException e1)
-                {
+                try {
+                    id3 = Integer.parseInt((String) item3per.getText());
+                } catch (NumberFormatException e1) {
                     e1.printStackTrace();
                     ErrInfo dialog = new ErrInfo("Item 3 percentage is not integer.");
                     dialog.pack();
                     dialog.setVisible(true);
                     return;
                 }
-                saveInput[5] = Integer.toString(id3);
+                cig.addItemToList(name3, id3);
 
                 String name4 = item4name.getText();
-                saveInput[6] = name4;
-
                 int id4 = 0;
-                try
-                {
-                    id4 = Integer.parseInt((String)item4per.getText());
-                } catch (NumberFormatException e1)
-                {
+                try {
+                    id4 = Integer.parseInt((String) item4per.getText());
+                } catch (NumberFormatException e1) {
                     e1.printStackTrace();
                     ErrInfo dialog = new ErrInfo("Item 4 percentage is not integer.");
                     dialog.pack();
                     dialog.setVisible(true);
                     return;
                 }
-                saveInput[7] = Integer.toString(id4);
+                cig.addItemToList(name4, id4);
 
                 String name5 = item5name.getText();
-                saveInput[8] = name5;
                 int id5 = 0;
-                try
-                {
-                    id5 = Integer.parseInt((String)item5per.getText());
-                } catch (NumberFormatException e1)
-                {
+                try {
+                    id5 = Integer.parseInt((String) item5per.getText());
+                } catch (NumberFormatException e1) {
                     e1.printStackTrace();
                     ErrInfo dialog = new ErrInfo("Item 5 percentage is not integer.");
                     dialog.pack();
                     dialog.setVisible(true);
                     return;
                 }
-                saveInput[9] = Integer.toString(id5);
+                cig.addItemToList(name5, id5);
+
+                // Add to Database.
+                cig.addItemsToDb();
             }
         });
 
@@ -258,5 +209,39 @@ public class AddItemUI implements IModelListener{
                 System.exit(0);
             }
         });
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("AddItemUI");
+        frame.setContentPane(new AddItemUI().JPanel1);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    private void calcPreSum() {
+        int sum = 0;
+        for (int a : percents) {
+            sum += a;
+        }
+        totalPercentTF.setText(Integer.toString(sum));
+        if (sum != 100) {
+            totalPercentTF.setForeground(Color.RED);
+            saveButton.setEnabled(false);
+        }
+        if (sum == 100) {
+            totalPercentTF.setForeground(Color.BLACK);
+            saveButton.setEnabled(true);
+        }
+    }
+
+    public void setMVC(ModelItemGroup mig, ControllerItemGroup cig) {
+        this.mig = mig;
+        this.cig = cig;
+        mig.setView(this);
+    }
+
+    public void notifyModelListener() {
+        groupIdTF.setText(Integer.toString(mig.getGroupId()));
     }
 }
