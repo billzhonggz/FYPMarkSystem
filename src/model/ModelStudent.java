@@ -7,17 +7,16 @@ public class ModelStudent {
     private int s_id;
     private String name;
     private int mobile;
-    private int group_id;
-    public ModelStudent(){}
-    public ModelStudent(int s_id, String name, int mobile, int group_id){
+    private String project_name;
+    public ModelStudent(int s_id, String name, int mobile, String project_name){
         this.s_id = s_id;
         this.name = name;
         this.mobile = mobile;
-        this.group_id = group_id;
+        this.project_name = project_name;
     }
-    public String toString(){
-        return "ModelStudent[s_id = "+ s_id +", name = "+ name +", mobile = "+ mobile +", group_id = "+ group_id +"]";
-    }
+//    public String toString(){
+//        return "ModelStudent[s_id = "+ s_id +", name = "+ name +", mobile = "+ mobile +", group_id = "+ group_id +"]";
+//    }
     public int getS_id(){
         return s_id;
     }
@@ -36,11 +35,10 @@ public class ModelStudent {
     public void setMobile(int mobile){
         this.mobile = mobile;
     }
-    public int getGroup_id(){
-        return group_id;
+    public String getProject_name(){
+        return project_name;
     }
-    public void setGroup_id(int group_id){
-        this.group_id = group_id;
+    public void setProject_name(String project_name){
+        this.project_name = project_name;
     }
-
 }

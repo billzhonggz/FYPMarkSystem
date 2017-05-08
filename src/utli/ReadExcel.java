@@ -1,7 +1,6 @@
 package utli;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,6 +15,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * Created by 子楹 on 2017/5/8.
  */
 public class ReadExcel {
+
     public static void readExcel(String filepath) throws IOException{
         DecimalFormat df = new DecimalFormat("#");
         ArrayList<ModelStudent> student = new ArrayList<ModelStudent>();
@@ -36,14 +36,20 @@ public class ReadExcel {
                     String s_id = getValue(xssfRow.getCell(0));
                     String name = xssfRow.getCell(1).getStringCellValue();
                     String mobile = getValue(xssfRow.getCell(2));
-                    String group_id = getValue(xssfRow.getCell(3));
+                    String project_name = xssfRow.getCell(2).getStringCellValue();
 
-                    System.out.println("s_id:"+ s_id +"name:"+ name +"mobile:"+ mobile +"group_id:"+ group_id +"\n");
-                    student.add(new ModelStudent(Integer.parseInt(s_id), name, Integer.parseInt(mobile),Integer.parseInt(group_id)));
+                    double phonenumer_tmp = Double.parseDouble(mobile);
+                    mobile = df.format(phonenumer_tmp);
+
+                    System.out.println("s_id:"+ s_id +"name:"+ name +"mobile:"+ mobile +"project_name:"+ project_name +"\n");
+                    student.add(new ModelStudent(Integer.parseInt(s_id), name, Integer.parseInt(mobile),project_name));
                 }
             }
         }
+        JDBC.InsertStudent(student);
     }
+
+    @SuppressWarnings("deprecation")
     private static String getValue(XSSFCell xssfcell){
         if (xssfcell.getCellType() == xssfcell.CELL_TYPE_BOOLEAN) {
             return String.valueOf(xssfcell.getBooleanCellValue());
