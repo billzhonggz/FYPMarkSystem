@@ -32,7 +32,7 @@ public class JDBC {
             name = s.getName();
             mobile = s.getMobile();
             group_id = s.getGroup_id();
-            String sql = "INSERT INTO Student (StuID,Name,phoneNumber,Year) " + "VALUES (" + "'" + s_id + "', " + "'"
+            String sql = "INSERT INTO Student (s_id, name, mobile, group_id) " + "VALUES (" + "'" + s_id + "', " + "'"
                     + name + "', '" + mobile + "', " + group_id + " );";
             System.out.println(sql);
             try {
