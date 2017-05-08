@@ -8,6 +8,13 @@ import javax.swing.*;
 public class StudentInformation {
     private JPanel panel1;
     private JButton Import;
-    private JTable table1;
-    private JFormattedTextField formattedTextField1;
+    private JTable table;
+
+    public StudentInformation(){
+        table = new JTable();
+        String[] columnNames = {"s_id",
+                "name",
+                "mobile",
+                "group_id"};
+    }
 }

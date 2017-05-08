@@ -9,7 +9,7 @@ public class ModelStudent {
     private int mobile;
     private int group_id;
     public ModelStudent(){}
-    public ModelStudent(int s_id, String name, int mobile){
+    public ModelStudent(int s_id, String name, int mobile, int group_id){
         this.s_id = s_id;
         this.name = name;
         this.mobile = mobile;
