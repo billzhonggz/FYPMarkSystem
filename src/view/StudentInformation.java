@@ -8,10 +8,10 @@ import javax.swing.*;
 public class StudentInformation {
     private JPanel panel1;
     private JButton Import;
-    private JTable table;
+    private JTable table1;
 
     public StudentInformation(){
-        table = new JTable();
+        table1 = new JTable();
         String[] columnNames = {"s_id",
                 "name",
                 "mobile",
