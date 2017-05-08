@@ -2,7 +2,9 @@ package model;
 
 import utli.SQLiteAccess;
 import utli.SQLiteConnectionInvalidException;
+import view.AddItemUI;
 import view.ErrInfo;
+import view.IModelListener;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,10 +17,15 @@ public class ModelItemGroup {
     private int groupId;
     private SQLiteAccess s;
     private ArrayList<Item> items;
+    private IModelListener listener;
 
-    public ModelItemGroup(ArrayList<Item> items) {
-        this.items = items;
+    public ModelItemGroup() {
+        this.items = new ArrayList<Item>();
         this.s = new SQLiteAccess();
+    }
+
+    public void setView(IModelListener listener) {
+        this.listener = listener;
     }
 
     public void addItemToList(Item item) {
@@ -34,7 +41,11 @@ public class ModelItemGroup {
         return items;
     }
 
-    public int addItemsToDb() {
+    public int getGroupId() {
+        return groupId;
+    }
+
+    public void addItemsToDb() {
         // First: Add items to database.
         // Get return id.
         int[] ids = new int[items.size()];
@@ -73,6 +84,5 @@ public class ModelItemGroup {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return groupId;
     }
 }

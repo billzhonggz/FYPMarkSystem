@@ -15,8 +15,7 @@ public class Item {
     private int itemPercentage;
     private SQLiteAccess s;
 
-    public Item(int itemId, String itemName, int itemPercentage) {
-        this.itemId = itemId;
+    public Item(String itemName, int itemPercentage) {
         this.itemName = itemName;
         this.itemPercentage = itemPercentage;
         this.s = new SQLiteAccess();
