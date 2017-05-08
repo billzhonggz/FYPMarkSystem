@@ -3,6 +3,7 @@ package model;
 import utli.SQLiteAccess;
 import utli.SQLiteConnectionInvalidException;
 import view.ErrInfo;
+import view.IModelListener;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,10 +16,15 @@ public class ModelItemGroup {
     private int groupId;
     private SQLiteAccess s;
     private ArrayList<Item> items;
+    private IModelListener listener;
 
-    public ModelItemGroup(ArrayList<Item> items) {
-        this.items = items;
+    public ModelItemGroup() {
+        this.items = new ArrayList<Item>();
         this.s = new SQLiteAccess();
+    }
+
+    public void setView(IModelListener listener) {
+        this.listener = listener;
     }
 
     public void addItemToList(Item item) {
@@ -34,7 +40,11 @@ public class ModelItemGroup {
         return items;
     }
 
-    public int addItemsToDb() {
+    public int getGroupId() {
+        return groupId;
+    }
+
+    public void addItemsToDb() {
         // First: Add items to database.
         // Get return id.
         int[] ids = new int[items.size()];
@@ -43,28 +53,16 @@ public class ModelItemGroup {
             ids[i] = items.get(i).addItemToDbReturnId();
         }
         // Second: Insert item id to group, return group id.
-        // Initialize a String array with empty value.
-        String[] strIds = new String[5];
-        for (int i = 0; i < 5; i++)
-            strIds[i] = "";
-        if (ids.length > 0 && ids.length < 5) {
-            for (int i = 0; i < ids.length; i++) {
-                try {
-                    strIds[i] = Integer.toString(ids[i]);
-                } catch (Exception e) {
-                    break;
-                }
-            }
-        }
         try {
-            s.execSqlNoReturn("INSERT INTO evaluation_groups(item1_id,item2_id,item3_id,item4_id,item5_id) VALUES(" +
-                    strIds[0] + "," + strIds[1] + "," + strIds[2] + "," + strIds[3] + "," + strIds[4] + "," + strIds[5] + ");");
+            String sql = "INSERT INTO evaluation_groups(item1_id,item2_id,item3_id,item4_id,item5_id) VALUES(" +
+                    ids[0] + "," + ids[1] + "," + ids[2] + "," + ids[3] + "," + ids[4]  + ");";
+            s.execSqlNoReturn(sql);
         } catch (SQLiteConnectionInvalidException e) {
             e.printStackTrace();
         }
         // Return group id.
         try {
-            ResultSet rs = s.execSqlWithReturn("SELECT LAST_INSERT_ROWID()");
+            ResultSet rs = s.execSqlWithReturn("SELECT MAX(id) FROM evaluation_groups;");
             while (rs.next()) {
                 groupId = rs.getInt(0);
             }
@@ -73,6 +71,5 @@ public class ModelItemGroup {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return groupId;
     }
 }

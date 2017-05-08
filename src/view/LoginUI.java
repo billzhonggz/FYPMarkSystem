@@ -18,13 +18,14 @@ public class LoginUI implements IModelListener {
     private int pwdStatus;
     private ModelLogin ml;
     private ControllerLogin cl;
+    private JFrame frame;
 
     public void LoginUI() {
 
     }
 
     public void initLoginUI() {
-        JFrame frame = new JFrame("LoginUI");
+        frame = new JFrame("LoginUI");
         frame.setContentPane(this.loginPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
@@ -45,6 +46,8 @@ public class LoginUI implements IModelListener {
                     pwdStatus = 1;
                     // TODO: Forward to the next page.
                     cl.forwardToNext();
+                    frame.setVisible(false);
+                    frame.dispose();
                 } else
                     pwdStatus = 0;
             }

@@ -47,7 +47,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value=""/>
+              <text value="0"/>
             </properties>
           </component>
           <hspacer id="3ff79">
@@ -76,7 +76,9 @@
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <text value="0"/>
+            </properties>
           </component>
           <component id="41d83" class="javax.swing.JTextField" binding="item3name">
             <constraints>
@@ -93,7 +95,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value=""/>
+              <text value="0"/>
             </properties>
           </component>
           <vspacer id="f1fe8">
@@ -115,7 +117,9 @@
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <text value="0"/>
+            </properties>
           </component>
           <vspacer id="73f59">
             <constraints>
@@ -136,7 +140,9 @@
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <text value="0"/>
+            </properties>
           </component>
           <vspacer id="a90aa">
             <constraints>

@@ -1,5 +1,6 @@
 package controller;
 
+import model.ModelItemGroup;
 import model.ModelLogin;
 import view.AddItemUI;
 
@@ -22,11 +23,15 @@ public class ControllerLogin {
         // Check evaluation group.
         boolean existence = ml.checkGroupExistence();
         if (existence)
-            // TODO: Forward to EnterMarkUI.
-        {}
-        else {
+        // TODO: Forward to EnterMarkUI.
+        {
+        } else {
             // TODO: Forward to AddItemUI.
+            ModelItemGroup mig = new ModelItemGroup();
+            ControllerItemGroup cig = new ControllerItemGroup(mig);
             AddItemUI addItemUI = new AddItemUI();
+            addItemUI.setMVC(mig, cig);
+            ml.closeDB();
         }
     }
 
