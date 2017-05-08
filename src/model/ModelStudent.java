@@ -16,7 +16,7 @@ public class ModelStudent {
         this.group_id = group_id;
     }
     public String toString(){
-        return "ModelStudent[s_id = "+ s_id +", name = "+ name +", mobile = "+ mobile +", group = "+ group_id +"]";
+        return "ModelStudent[s_id = "+ s_id +", name = "+ name +", mobile = "+ mobile +", group_id = "+ group_id +"]";
     }
     public int getS_id(){
         return s_id;
@@ -35,6 +35,12 @@ public class ModelStudent {
     }
     public void setMobile(int mobile){
         this.mobile = mobile;
+    }
+    public int getGroup_id(){
+        return group_id;
+    }
+    public void setGroup_id(int group_id){
+        this.group_id = group_id;
     }
 
 }
