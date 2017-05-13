@@ -156,6 +156,14 @@ public class ReadExcel {
 
         }
         System.out.print(sql);
+        // Do sql insert.
+        SQLiteAccess s = new SQLiteAccess();
+        try {
+            s.execSqlNoReturn(sql);
+        } catch (SQLiteConnectionInvalidException e) {
+            e.printStackTrace();
+        }
+        s.closeConnection();
         return sql;
     }
 }
