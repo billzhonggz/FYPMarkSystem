@@ -16,7 +16,7 @@ public class ModelEnterMark {
     private ArrayList<ModelStudent> students;
     private ArrayList<Item> items;
     private ArrayList<Integer> groupIds;
-    private int currentGroupId;
+    private int currentGroupId = 0;
     private SQLiteAccess s;
 
     public ModelEnterMark() {
@@ -29,7 +29,7 @@ public class ModelEnterMark {
         try {
             ResultSet rs = s.execSqlWithReturn("SELECT id FROM evaluation_groups;");
             while (rs.next()) {
-                groupIds.add(rs.getInt(0));
+                groupIds.add(rs.getInt(1));
             }
         } catch (SQLiteConnectionInvalidException e) {
             e.printStackTrace();
@@ -41,13 +41,13 @@ public class ModelEnterMark {
 
     public void setCurrentGroupId(int currentGroupId) {
         this.currentGroupId = currentGroupId;
-        notifyView();
+        //notifyView();
     }
 
     public void LoadStudents() {
         // Read student list.
         try {
-            ResultSet rs = s.execSqlWithReturn("SELECT * FROM student WHERE currentGroupId=" + currentGroupId + ";");
+            ResultSet rs = s.execSqlWithReturn("SELECT * FROM student WHERE group_id=" + currentGroupId + ";");
             while (rs.next()) {
                 ModelStudent student = new ModelStudent(
                         this.currentGroupId,
@@ -69,7 +69,7 @@ public class ModelEnterMark {
     public void LoadItems() {
         int[] itemIds = new int[5];
         try {
-            ResultSet rs1 = s.execSqlWithReturn("SELECT * FROM evaluation_groups WHERE id=" + currentGroupId + ";");
+            ResultSet rs1 = s.execSqlWithReturn("SELECT * FROM evaluation_groups WHERE group_id=" + currentGroupId + ";");
             while (rs1.next()) {
                 itemIds[0] = rs1.getInt(0);
                 itemIds[1] = rs1.getInt(1);
@@ -131,6 +131,10 @@ public class ModelEnterMark {
 
     public ArrayList<Integer> getGroupIds() {
         return groupIds;
+    }
+
+    public int getCurrentGroupId() {
+        return currentGroupId;
     }
 
     public void closeDB() {

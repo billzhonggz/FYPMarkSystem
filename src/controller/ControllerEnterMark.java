@@ -27,7 +27,9 @@ public class ControllerEnterMark {
     }
 
     public void setCurrentGroupId(int currentGroupId) {
-        mek.searchGroupIds();
+        mek.setCurrentGroupId(currentGroupId);
+        mek.LoadStudents();
+        mek.LoadItems();
     }
 
     public void backToLogin() {
