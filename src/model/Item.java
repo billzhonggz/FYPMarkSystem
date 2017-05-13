@@ -37,7 +37,7 @@ public class Item {
         int id = 0;
         try {
             // Add this item to db.
-            String sql = "INSERT INTO evaluation_items(name, percentage) VALUES(" + this.itemName + "," + this.itemPercentage + ");";
+            String sql = "INSERT INTO evaluation_items(name, percentage) VALUES('" + this.itemName + "'," + this.itemPercentage + ");";
             s.execSqlNoReturn(sql);
             // Get id.
             ResultSet rs = s.execSqlWithReturn("SELECT MAX(id) FROM evaluation_items;");

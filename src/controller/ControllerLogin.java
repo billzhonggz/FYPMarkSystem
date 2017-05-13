@@ -1,8 +1,10 @@
 package controller;
 
+import model.ModelEnterMark;
 import model.ModelItemGroup;
 import model.ModelLogin;
 import view.AddItemUI;
+import view.EnterMarkUI;
 
 /**
  * Created by ZHONG on 2017/5/3.
@@ -22,9 +24,12 @@ public class ControllerLogin {
     public void forwardToNext() {
         // Check evaluation group.
         boolean existence = ml.checkGroupExistence();
-        if (existence)
-        // TODO: Forward to EnterMarkUI.
-        {
+        if (existence) {
+            ModelEnterMark modelEnterMark = new ModelEnterMark();
+            ControllerEnterMark controllerEnterMark = new ControllerEnterMark(modelEnterMark);
+            EnterMarkUI enterMarkUI = new EnterMarkUI();
+            enterMarkUI.setMVC(modelEnterMark,controllerEnterMark);
+            ml.closeDB();
         } else {
             // TODO: Forward to AddItemUI.
             ModelItemGroup mig = new ModelItemGroup();

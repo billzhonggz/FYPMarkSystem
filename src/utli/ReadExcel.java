@@ -19,7 +19,7 @@ public class ReadExcel {
     /**
      * 判断Excel的版本,获取Workbook
      */
-    public static Workbook getWorkbok(InputStream in, File file) throws IOException {
+    public static Workbook getWorkbook(InputStream in, File file) throws IOException {
         Workbook wb = null;
         if (file.getName().endsWith(EXCEL_XLS)) { // Excel 2003
             wb = new HSSFWorkbook(in);
@@ -61,7 +61,7 @@ public class ReadExcel {
             File excelFile = new File(filename); // 创建文件对象
             FileInputStream is = new FileInputStream(excelFile); // 文件流
             checkExcelVaild(excelFile);
-            Workbook workbook = getWorkbok(is, excelFile);
+            Workbook workbook = getWorkbook(is, excelFile);
             // Workbook workbook = WorkbookFactory.create(is); // 这种方式
             // Excel2003/2007/2010都是可以处理的
             int sheetCount = workbook.getNumberOfSheets(); // Sheet的数量

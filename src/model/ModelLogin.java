@@ -62,7 +62,7 @@ public class ModelLogin {
         try {
             ResultSet rs = s.execSqlWithReturn("SELECT COUNT(*) FROM evaluation_groups;");
             while (rs.next()) {
-                groupCount = rs.getInt(0);
+                groupCount = rs.getInt(1);
             }
         } catch (SQLiteConnectionInvalidException e) {
             e.printStackTrace();
