@@ -14,14 +14,6 @@ public class ControllerEnterMark {
         this.mek = mek;
     }
 
-    public void LoadStudents() {
-        mek.LoadStudents();
-    }
-
-    public void LoadItems() {
-        mek.LoadItems();
-    }
-
     public void searchGroupIds() {
         mek.searchGroupIds();
     }
@@ -30,6 +22,10 @@ public class ControllerEnterMark {
         mek.setCurrentGroupId(currentGroupId);
         mek.LoadStudents();
         mek.LoadItems();
+    }
+
+    public void setScore(int s_id, int s1, int s2, int s3, int s4, int s5) {
+        mek.saveScore(s_id, s1, s2, s3, s4, s5);
     }
 
     public void backToLogin() {
