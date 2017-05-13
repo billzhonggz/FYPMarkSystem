@@ -6,7 +6,7 @@ package utli;
 public class TestExcel {
     public static void main(String[] args) {
         try {
-            ReadExcel.readExcel("excel","student.xlsx");
+            ReadExcel.readExcel("excel","student.xlsx",1);
         } catch (Exception e) {
             e.printStackTrace();
         }

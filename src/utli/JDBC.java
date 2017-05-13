@@ -26,7 +26,7 @@ public class JDBC {
         connect();
         int s_id;
         String name = "";
-        int mobile;
+        long mobile;
         String project_name = "";
         for(ModelStudent s : student){
             s_id = s.getS_id();

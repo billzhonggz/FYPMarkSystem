@@ -6,9 +6,13 @@ package model;
 public class ModelStudent {
     private int s_id;
     private String name;
-    private int mobile;
+    private long mobile;
     private String project_name;
-    public ModelStudent(int s_id, String name, int mobile, String project_name){
+
+    public ModelStudent() {
+    }
+
+    public ModelStudent(int s_id, String name, long mobile, String project_name){
         this.s_id = s_id;
         this.name = name;
         this.mobile = mobile;
@@ -29,10 +33,10 @@ public class ModelStudent {
     public void setName(String name){
         this.name = name;
     }
-    public int getMobile(){
+    public long getMobile(){
         return mobile;
     }
-    public void setMobile(int mobile){
+    public void setMobile(long mobile){
         this.mobile = mobile;
     }
     public String getProject_name(){

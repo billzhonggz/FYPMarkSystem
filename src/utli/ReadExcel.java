@@ -49,10 +49,11 @@ public class ReadExcel {
      */
 
     @SuppressWarnings("finally")
-    public static JSONArray readExcel(String path, String name) throws Exception {
-        String sqlfile =path+ "//" + name.substring(0,name.lastIndexOf(".")) +".txt";
-        System.out.println(sqlfile);
-        BufferedWriter bw = new BufferedWriter(new FileWriter(new File(sqlfile)));
+    public static JSONArray readExcel(String path, String name, int group_id) throws Exception {
+        group_id = group_id;
+        //String sqlfile =path+ "//" + name.substring(0,name.lastIndexOf(".")) +".txt";
+        //System.out.println(sqlfile);
+        //BufferedWriter bw = new BufferedWriter(new FileWriter(new File(sqlfile)));
         String filename = path + "//" + name;
         JSONArray array =null;
         try {
@@ -99,12 +100,12 @@ public class ReadExcel {
                 }
             }
             String tableName="student";
-            writeSql(tag,array,bw,tagNum,tableName);
-            bw.flush();
+            writeSql(tag,array,tagNum,tableName, group_id);
+            //bw.flush();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            bw.close();
+            //bw.close();
             return array;
         }
     }
@@ -121,9 +122,9 @@ public class ReadExcel {
      * @return void    返回类型
      * @throws
      */
-    private static String writeSql(String[] tag, JSONArray array, BufferedWriter bw, int tagNum, String tableName) {
+    private static String writeSql(String[] tag, JSONArray array, int tagNum, String tableName, int group_id) {
         String sql = "";
-        sql = "INSERT INTO `" + tableName + "` ( ";
+        sql = "INSERT INTO `" + tableName + "` (group_id, ";
         for(int i = 0;i<tagNum;i++){
             if(i != tagNum-1){
                 sql += "`"+tag[i]+"`" +", ";
@@ -137,7 +138,7 @@ public class ReadExcel {
             jsonObj = (JSONObject) array.get(i);
             for(int j=0;j<tagNum;j++){
                 if(j==0){
-                    sql += " ( ";
+                    sql += " ('" + group_id + "', ";
                     sql += "'" +jsonObj.get(tag[j])+"'" + " ,";
                 }else if(j == tagNum-1){
                     sql += "'" +jsonObj.get(tag[j])+"'" +" )";
@@ -155,12 +156,6 @@ public class ReadExcel {
 
         }
         System.out.print(sql);
-        try {
-            bw.write(sql);
-            bw.newLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         return sql;
     }
 }
