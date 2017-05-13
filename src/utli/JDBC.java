@@ -16,7 +16,7 @@ public class JDBC {
     public static void connect() {
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:Workshop_test.db");
+            c = DriverManager.getConnection("jdbc:sqlite:fyp.db");
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
