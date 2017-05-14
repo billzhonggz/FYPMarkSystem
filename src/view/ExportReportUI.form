@@ -47,7 +47,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value="Assign Grades"/>
+              <text value="Sort Score"/>
             </properties>
           </component>
           <component id="4554d" class="javax.swing.JButton" binding="exportGradeReportButton" default-binding="true">
