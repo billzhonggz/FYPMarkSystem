@@ -14,7 +14,6 @@ public class LoginUI implements IModelListener {
     private JPasswordField password;
     private JButton enterButton;
     private JPanel loginPanel;
-    private JLabel statusLabel;
     private int pwdStatus;
     private ModelLogin ml;
     private ControllerLogin cl;
@@ -38,23 +37,23 @@ public class LoginUI implements IModelListener {
         ml.setView(this);
 
         // Perform an action to button.
-        // TODO: Bug: Never reach the listener.
         enterButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String pwd = password.getText();
                 if (cl.checkPwd(pwd)) {
                     pwdStatus = 1;
-                    // TODO: Forward to the next page.
+                    // Forward to the next page.
                     cl.forwardToNext();
                     frame.setVisible(false);
                     frame.dispose();
-                } else
+                } else {
                     pwdStatus = 0;
+                    JOptionPane.showMessageDialog(frame,"Password incorrect.");
+                }
             }
         });
     }
 
     public void notifyModelListener() {
-        statusLabel.setText("Login success.");
     }
 }

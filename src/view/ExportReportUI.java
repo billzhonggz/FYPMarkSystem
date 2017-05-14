@@ -3,7 +3,7 @@ package view;
 import controller.ControllerExportReport;
 import model.Item;
 import model.ModelExportReport;
-import model.ModelStudent;
+import model.Student;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -60,9 +60,9 @@ public class ExportReportUI implements IModelListener {
 
     public void notifyModelListener() {
         // Get lists and display.
-        ArrayList<ModelStudent> students = mer.getStudents();
+        ArrayList<Student> students = mer.getStudents();
         ArrayList<Item> items = mer.getItems();
-        Object[][] gradeListData = new Object[students.size()][10];
+        Object[][] gradeListData = new Object[students.size()][17];
         String[] header = {
                 "Student ID",
                 "Name",
@@ -73,6 +73,13 @@ public class ExportReportUI implements IModelListener {
                 items.get(2).getItemName(),
                 items.get(3).getItemName(),
                 items.get(4).getItemName(),
+                items.get(5).getItemName(),
+                items.get(6).getItemName(),
+                items.get(7).getItemName(),
+                items.get(8).getItemName(),
+                items.get(9).getItemName(),
+                items.get(10).getItemName(),
+                items.get(11).getItemName(),
                 "Total Score"
         };
         for (int i = 0; i < students.size(); i++) {
@@ -85,7 +92,14 @@ public class ExportReportUI implements IModelListener {
             gradeListData[i][6] = students.get(i).getScore3();
             gradeListData[i][7] = students.get(i).getScore4();
             gradeListData[i][8] = students.get(i).getScore5();
-            gradeListData[i][9] = students.get(i).getTotalScore();
+            gradeListData[i][9] = students.get(i).getScore6();
+            gradeListData[i][10] = students.get(i).getScore7();
+            gradeListData[i][11] = students.get(i).getScore8();
+            gradeListData[i][12] = students.get(i).getScore9();
+            gradeListData[i][13] = students.get(i).getScore10();
+            gradeListData[i][14] = students.get(i).getScore11();
+            gradeListData[i][15] = students.get(i).getScore12();
+            gradeListData[i][16] = students.get(i).getTotalScore();
         }
         DefaultTableModel model = new DefaultTableModel(gradeListData, header) {
             public boolean isCellEditable(int row, int col) {

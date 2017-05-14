@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="EnterMarkPanel" layout-manager="GridLayoutManager" row-count="5" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="642" height="400"/>
+      <xy x="20" y="20" width="642" height="620"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -31,7 +31,7 @@
         </constraints>
         <properties/>
       </component>
-      <grid id="656cf" layout-manager="GridLayoutManager" row-count="9" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="656cf" layout-manager="GridLayoutManager" row-count="16" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -57,7 +57,7 @@
           </component>
           <scrollpane id="bc253">
             <constraints>
-              <grid row="1" column="0" row-span="7" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="0" row-span="14" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -71,7 +71,7 @@
           <grid id="330a7" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="8" column="0" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="15" column="0" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -195,46 +195,6 @@
               <text value="Percentage 5"/>
             </properties>
           </component>
-          <component id="bf10d" class="javax.swing.JFormattedTextField" binding="score1">
-            <constraints>
-              <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties/>
-          </component>
-          <component id="72eb8" class="javax.swing.JFormattedTextField" binding="score2">
-            <constraints>
-              <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties/>
-          </component>
-          <component id="edca3" class="javax.swing.JFormattedTextField" binding="score3">
-            <constraints>
-              <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties/>
-          </component>
-          <component id="34175" class="javax.swing.JFormattedTextField" binding="score4">
-            <constraints>
-              <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties/>
-          </component>
-          <component id="4e315" class="javax.swing.JFormattedTextField" binding="score5">
-            <constraints>
-              <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties/>
-          </component>
           <component id="c05da" class="javax.swing.JLabel" binding="selectedStuName">
             <constraints>
               <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -264,12 +224,12 @@
               <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Score"/>
+              <text value="Grade"/>
             </properties>
           </component>
           <component id="a06ed" class="javax.swing.JLabel">
             <constraints>
-              <grid row="7" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="14" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Total Score"/>
@@ -277,10 +237,362 @@
           </component>
           <component id="4ef8a" class="javax.swing.JLabel" binding="totalScoreLabel">
             <constraints>
-              <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="14" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value=""/>
+            </properties>
+          </component>
+          <component id="70c03" class="javax.swing.JLabel" binding="item6Label">
+            <constraints>
+              <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Item 6"/>
+            </properties>
+          </component>
+          <component id="ea397" class="javax.swing.JLabel" binding="item6Per">
+            <constraints>
+              <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Percentage 6"/>
+            </properties>
+          </component>
+          <component id="44829" class="javax.swing.JLabel" binding="item7Label">
+            <constraints>
+              <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Item 7"/>
+            </properties>
+          </component>
+          <component id="418b1" class="javax.swing.JLabel" binding="item7Per">
+            <constraints>
+              <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Percentage 7"/>
+            </properties>
+          </component>
+          <component id="54be0" class="javax.swing.JLabel" binding="item8Label">
+            <constraints>
+              <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Item 8"/>
+            </properties>
+          </component>
+          <component id="f0bac" class="javax.swing.JLabel" binding="item8Per">
+            <constraints>
+              <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Percentage 8"/>
+            </properties>
+          </component>
+          <component id="1f84" class="javax.swing.JLabel" binding="item9Label">
+            <constraints>
+              <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Item 9"/>
+            </properties>
+          </component>
+          <component id="b844c" class="javax.swing.JLabel" binding="item9Per">
+            <constraints>
+              <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Percentage 9"/>
+            </properties>
+          </component>
+          <component id="61de0" class="javax.swing.JLabel" binding="item10Label">
+            <constraints>
+              <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Item 10"/>
+            </properties>
+          </component>
+          <component id="93e37" class="javax.swing.JLabel" binding="item10Per">
+            <constraints>
+              <grid row="11" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Percentage 10"/>
+            </properties>
+          </component>
+          <component id="36fc2" class="javax.swing.JLabel" binding="item11Label">
+            <constraints>
+              <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Item 11"/>
+            </properties>
+          </component>
+          <component id="8a91f" class="javax.swing.JLabel" binding="item11Per">
+            <constraints>
+              <grid row="12" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Percentage 11"/>
+            </properties>
+          </component>
+          <component id="fdfa4" class="javax.swing.JLabel" binding="item12Label">
+            <constraints>
+              <grid row="13" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Item 12"/>
+            </properties>
+          </component>
+          <component id="6da49" class="javax.swing.JLabel" binding="item12Per">
+            <constraints>
+              <grid row="13" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Percentage 12"/>
+            </properties>
+          </component>
+          <component id="5d9ff" class="javax.swing.JComboBox" binding="grade1">
+            <constraints>
+              <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D"/>
+                <item value="F"/>
+              </model>
+              <toolTipText value=""/>
+            </properties>
+          </component>
+          <component id="f95de" class="javax.swing.JComboBox" binding="grade2">
+            <constraints>
+              <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D"/>
+                <item value="F"/>
+              </model>
+              <toolTipText value=""/>
+            </properties>
+          </component>
+          <component id="86839" class="javax.swing.JComboBox" binding="grade3">
+            <constraints>
+              <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D"/>
+                <item value="F"/>
+              </model>
+              <toolTipText value=""/>
+            </properties>
+          </component>
+          <component id="986e2" class="javax.swing.JComboBox" binding="grade4">
+            <constraints>
+              <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D"/>
+                <item value="F"/>
+              </model>
+              <toolTipText value=""/>
+            </properties>
+          </component>
+          <component id="c8223" class="javax.swing.JComboBox" binding="grade5">
+            <constraints>
+              <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D"/>
+                <item value="F"/>
+              </model>
+              <toolTipText value=""/>
+            </properties>
+          </component>
+          <component id="f0d" class="javax.swing.JComboBox" binding="grade6">
+            <constraints>
+              <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D"/>
+                <item value="F"/>
+              </model>
+              <toolTipText value=""/>
+            </properties>
+          </component>
+          <component id="bcda5" class="javax.swing.JComboBox" binding="grade7">
+            <constraints>
+              <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D"/>
+                <item value="F"/>
+              </model>
+              <toolTipText value=""/>
+            </properties>
+          </component>
+          <component id="51615" class="javax.swing.JComboBox" binding="grade8">
+            <constraints>
+              <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D"/>
+                <item value="F"/>
+              </model>
+              <toolTipText value=""/>
+            </properties>
+          </component>
+          <component id="f7c36" class="javax.swing.JComboBox" binding="grade9">
+            <constraints>
+              <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D"/>
+                <item value="F"/>
+              </model>
+              <toolTipText value=""/>
+            </properties>
+          </component>
+          <component id="abb1c" class="javax.swing.JComboBox" binding="grade10">
+            <constraints>
+              <grid row="11" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D"/>
+                <item value="F"/>
+              </model>
+              <toolTipText value=""/>
+            </properties>
+          </component>
+          <component id="fcc29" class="javax.swing.JComboBox" binding="grade11">
+            <constraints>
+              <grid row="12" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D"/>
+                <item value="F"/>
+              </model>
+              <toolTipText value=""/>
+            </properties>
+          </component>
+          <component id="2d99a" class="javax.swing.JComboBox" binding="grade12">
+            <constraints>
+              <grid row="13" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D"/>
+                <item value="F"/>
+              </model>
+              <toolTipText value=""/>
             </properties>
           </component>
         </children>

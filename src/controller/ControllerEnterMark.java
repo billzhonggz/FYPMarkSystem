@@ -28,8 +28,8 @@ public class ControllerEnterMark {
         mek.LoadItems();
     }
 
-    public void setScore(int s_id, int s1, int s2, int s3, int s4, int s5, int st) {
-        mek.saveScore(s_id, s1, s2, s3, s4, s5, st);
+    public void setScore(int s_id, String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8, String s9, String s10, String s11, String s12) {
+        mek.saveScore(s_id, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12);
     }
 
     public void backToLogin() {

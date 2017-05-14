@@ -12,12 +12,12 @@ import java.util.Comparator;
  */
 public class ModelExportReport {
     private ExportReportUI view;
-    private ArrayList<ModelStudent> students;
+    private ArrayList<Student> students;
     private ArrayList<Item> items;
     private int currentGroupId;
 
     public ModelExportReport() {
-        students = new ArrayList<ModelStudent>();
+        students = new ArrayList<Student>();
         items = new ArrayList<Item>();
         this.currentGroupId = 0;
     }
@@ -48,11 +48,11 @@ public class ModelExportReport {
         notifyView();
     }
 
-    public ArrayList<ModelStudent> getStudents() {
+    public ArrayList<Student> getStudents() {
         return students;
     }
 
-    public void setStudents(ArrayList<ModelStudent> students) {
+    public void setStudents(ArrayList<Student> students) {
         this.students = students;
     }
 
@@ -70,8 +70,8 @@ public class ModelExportReport {
 
     class SortByScore implements Comparator {
         public int compare(Object o1, Object o2) {
-            ModelStudent s1 = (ModelStudent) o1;
-            ModelStudent s2 = (ModelStudent) o2;
+            Student s1 = (Student) o1;
+            Student s2 = (Student) o2;
             if (s1.getTotalScore() > s2.getTotalScore())
                 return -1;
             else if (s1.getTotalScore() < s2.getTotalScore())

@@ -2,7 +2,6 @@ package model;
 
 import utli.SQLiteAccess;
 import utli.SQLiteConnectionInvalidException;
-import view.ErrInfo;
 import view.IModelListener;
 
 import java.sql.ResultSet;
@@ -28,12 +27,7 @@ public class ModelItemGroup {
     }
 
     public void addItemToList(Item item) {
-        if (items.size() >= 5) {
-            ErrInfo dialog = new ErrInfo("This evaluation group is already full.");
-            dialog.pack();
-            dialog.setVisible(true);
-        } else
-            items.add(item);
+        items.add(item);
     }
 
     public ArrayList<Item> getItems() {
@@ -54,8 +48,8 @@ public class ModelItemGroup {
         }
         // Second: Insert item id to group, return group id.
         try {
-            String sql = "INSERT INTO evaluation_groups(item1_id,item2_id,item3_id,item4_id,item5_id) VALUES(" +
-                    ids[0] + "," + ids[1] + "," + ids[2] + "," + ids[3] + "," + ids[4]  + ");";
+            String sql = "INSERT INTO evaluation_groups(item1_id,item2_id,item3_id,item4_id,item5_id,item6_id,item7_id,item8_id,item9_id,item10_id,item11_id,item12_id) VALUES(" +
+                    ids[0] + "," + ids[1] + "," + ids[2] + "," + ids[3] + "," + ids[4] + "," + ids[5] + "," + ids[6] + "," + ids[7] + "," + ids[8] + "," + ids[9] + "," + ids[10] + "," + ids[11] + ");";
             s.execSqlNoReturn(sql);
         } catch (SQLiteConnectionInvalidException e) {
             e.printStackTrace();

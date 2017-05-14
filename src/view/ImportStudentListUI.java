@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import controller.ControllerEnterMark;
 import model.ModelEnterMark;
-import model.ModelStudent;
+import model.Student;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import utli.ReadExcel;
@@ -55,13 +55,13 @@ public class ImportStudentListUI {
                         dialog.pack();
                         dialog.setVisible(true);
                     }
-                    ArrayList<ModelStudent> students = new ArrayList<ModelStudent>();
+                    ArrayList<Student> students = new ArrayList<Student>();
                     // Traverse JSON array.
                     try {
                         for (int i = 0; i < inserted.length(); i++) {
                             JSONObject record = inserted.getJSONObject(i);
                             ObjectMapper mapper = new ObjectMapper();
-                            students.add(mapper.readValue(record.toString(), ModelStudent.class));
+                            students.add(mapper.readValue(record.toString(), Student.class));
                         }
                     } catch (JsonMappingException e1) {
                         e1.printStackTrace();
