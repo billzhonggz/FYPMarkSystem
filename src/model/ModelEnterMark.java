@@ -48,15 +48,35 @@ public class ModelEnterMark {
     public void LoadStudents() {
         // Read student list.
         try {
-            ResultSet rs = s.execSqlWithReturn("SELECT * FROM student WHERE group_id=" + currentGroupId + ";");
-            while (rs.next()) {
-                ModelStudent student = new ModelStudent(
-                        this.currentGroupId,
-                        rs.getInt(rs.findColumn("s_id")),
-                        rs.getString(rs.findColumn("name")),
-                        rs.getLong(rs.findColumn("mobile")),
-                        rs.getString(rs.findColumn("project_name"))
-                );
+            ResultSet rs1 = s.execSqlWithReturn("SELECT * FROM student WHERE group_id=" + currentGroupId + ";");
+            while (rs1.next()) {
+                ModelStudent student;
+                int s_id = rs1.getInt(rs1.findColumn("s_id"));
+                ResultSet rs2 = s.execSqlWithReturn("SELECT * FROM student_score WHERE s_id=" + s_id + ";");
+                if (rs2.next()) {
+                    student = new ModelStudent(
+                            this.currentGroupId,
+                            s_id,
+                            rs1.getString(rs1.findColumn("name")),
+                            rs1.getLong(rs1.findColumn("mobile")),
+                            rs1.getString(rs1.findColumn("project_name")),
+                            rs2.getInt(rs2.findColumn("item1_score")),
+                            rs2.getInt(rs2.findColumn("item2_score")),
+                            rs2.getInt(rs2.findColumn("item3_score")),
+                            rs2.getInt(rs2.findColumn("item4_score")),
+                            rs2.getInt(rs2.findColumn("item5_score")),
+                            rs2.getInt(rs2.findColumn("total_score"))
+                            );
+                }
+                else {
+                    student = new ModelStudent(
+                            this.currentGroupId,
+                            s_id,
+                            rs1.getString(rs1.findColumn("name")),
+                            rs1.getLong(rs1.findColumn("mobile")),
+                            rs1.getString(rs1.findColumn("project_name"))
+                    );
+                }
                 students.add(student);
             }
         } catch (SQLiteConnectionInvalidException e) {
@@ -94,7 +114,7 @@ public class ModelEnterMark {
         notifyView();
     }
 
-    public void saveScore(int s_id, int score1, int score2, int score3, int score4, int score5) {
+    public void saveScore(int s_id, int score1, int score2, int score3, int score4, int score5, int st) {
         // Update student list first.
         ModelStudent student = findModelStudentBySid(s_id);
         student.setScore1(score1);
@@ -104,10 +124,22 @@ public class ModelEnterMark {
         student.setScore5(score5);
         // Update database.
         try {
-            s.execSqlNoReturn("INSERT INTO student_score(s_id, eg_id, item1_score, item2_score, item3_score, item4_score, item5_score) " +
-                    "VALUES(" + s_id + "," + currentGroupId + "," + score1 + "," + score2 + "," + score3 + "," + score4 + "," + score5 + ");");
+            // Check existence fot this record.
+            ResultSet rs = s.execSqlWithReturn("SELECT * FROM student_score WHERE s_id=" + s_id + " AND eg_id=" + currentGroupId +";");
+            // If exist, do update.
+            if (rs.next()) {
+                s.execSqlUpdate("UPDATE student_score SET " +
+                        "item1_score=" + score1 +", item2_score=" + score2 + ", item3_score=" + score3 + ", " +
+                        "item4_score=" + score4 + ", item5_score=" + score5 + ", total_score=" + st + " WHERE s_id=" + s_id +";");
+            }
+            else {
+                s.execSqlNoReturn("INSERT INTO student_score(s_id, eg_id, item1_score, item2_score, item3_score, item4_score, item5_score, total_score) " +
+                        "VALUES(" + s_id + "," + currentGroupId + "," + score1 + "," + score2 + "," + score3 + "," + score4 + "," + score5 + "," + st + ");");
+            }
         } catch (SQLiteConnectionInvalidException e) {
             e.printStackTrace();
+        } catch (SQLException e1) {
+            e1.printStackTrace();
         }
         notifyView();
     }

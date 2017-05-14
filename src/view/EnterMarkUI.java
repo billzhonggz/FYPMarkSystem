@@ -38,6 +38,7 @@ public class EnterMarkUI implements IModelListener {
     private JLabel item3Per;
     private JLabel item4Per;
     private JLabel item5Per;
+    private JLabel totalScoreLabel;
 
     private ModelEnterMark mek;
     private ControllerEnterMark cek;
@@ -75,19 +76,46 @@ public class EnterMarkUI implements IModelListener {
                 String name = (String) enterMarkStuListTable.getValueAt(row, 1);
                 selectedStuId.setText(Integer.toString(selectedId));
                 selectedStuName.setText(name);
+                ModelStudent s = mek.findModelStudentBySid(selectedId);
+                score1.setText(Integer.toString(s.getScore1()));
+                score2.setText(Integer.toString(s.getScore2()));
+                score3.setText(Integer.toString(s.getScore3()));
+                score4.setText(Integer.toString(s.getScore4()));
+                score5.setText(Integer.toString(s.getScore5()));
+                totalScoreLabel.setText(Integer.toString(s.getTotalScore()));
             }
         });
         saveBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // TODO: Read inputs on JFormattedTextFields and assign them to the clicked student object.
-                int s1 = Integer.parseInt(score1.getText());
-                int s2 = Integer.parseInt(score2.getText());
-                int s3 = Integer.parseInt(score3.getText());
-                int s4 = Integer.parseInt(score4.getText());
-                int s5 = Integer.parseInt(score5.getText());
-                if (selectedId != 0) {
-                    cek.setScore(selectedId, s1, s2, s3, s4, s5);
+                // TODO: Calculate and forward total score.
+                int s1 = 0;
+                int s2 = 0;
+                int s3 = 0;
+                int s4 = 0;
+                int s5 = 0;
+                int st = 0;
+                try {
+                    s1 = Integer.parseInt(score1.getText());
+                    s2 = Integer.parseInt(score2.getText());
+                    s3 = Integer.parseInt(score3.getText());
+                    s4 = Integer.parseInt(score4.getText());
+                    s5 = Integer.parseInt(score5.getText());
+                    st = s1 * Integer.parseInt(item1Per.getText()) / 100 +
+                            s2 * Integer.parseInt(item2Per.getText()) / 100 +
+                            s3 * Integer.parseInt(item3Per.getText()) / 100 +
+                            s4 * Integer.parseInt(item4Per.getText()) / 100 +
+                            s5 * Integer.parseInt(item5Per.getText()) / 100;
+                } catch (NumberFormatException e1) {
+                    e1.printStackTrace();
+                    JOptionPane.showMessageDialog(frame, "Please input integers.");
                 }
+                if (selectedId != 0) {
+                    cek.setScore(selectedId, s1, s2, s3, s4, s5, st);
+                    totalScoreLabel.setText(Integer.toString(st));
+                    JOptionPane.showMessageDialog(frame, "Score of " + selectedId + " saved. ");
+                }
+                else
+                    JOptionPane.showMessageDialog(frame, "Save failed: student not selected. ");
             }
         });
     }

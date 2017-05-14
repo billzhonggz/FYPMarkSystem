@@ -14,6 +14,7 @@ public class ModelStudent {
     private int score3;
     private int score4;
     private int score5;
+    private int totalScore;
 
     public ModelStudent() {
     }
@@ -25,7 +26,22 @@ public class ModelStudent {
         this.mobile = mobile;
         this.project_name = project_name;
     }
-//    public String toString(){
+
+    public ModelStudent(int group_id, int s_id, String name, long mobile, String project_name, int score1, int score2, int score3, int score4, int score5, int totalScore) {
+        this.group_id = group_id;
+        this.s_id = s_id;
+        this.name = name;
+        this.mobile = mobile;
+        this.project_name = project_name;
+        this.score1 = score1;
+        this.score2 = score2;
+        this.score3 = score3;
+        this.score4 = score4;
+        this.score5 = score5;
+        this.totalScore = totalScore;
+    }
+
+    //    public String toString(){
 //        return "ModelStudent[s_id = "+ s_id +", name = "+ name +", mobile = "+ mobile +", group_id = "+ group_id +"]";
 //    }
     public int getS_id(){
@@ -91,5 +107,13 @@ public class ModelStudent {
 
     public void setScore5(int score5) {
         this.score5 = score5;
+    }
+
+    public int getTotalScore() {
+        return totalScore;
+    }
+
+    public void setTotalScore(int totalScore) {
+        this.totalScore = totalScore;
     }
 }
