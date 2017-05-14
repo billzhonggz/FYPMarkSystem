@@ -36,7 +36,7 @@ public class AddItemUI implements IModelListener {
     private ControllerItemGroup cig;
 
     public AddItemUI() {
-        JFrame frame = new JFrame("AddItemUI");
+        final JFrame frame = new JFrame("AddItemUI");
         frame.setContentPane(this.JPanel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
@@ -201,6 +201,10 @@ public class AddItemUI implements IModelListener {
 
                 // Add to Database.
                 cig.addItemsToDb();
+
+                cig.forwardToAddStudent();
+                frame.setVisible(false);
+                frame.dispose();
             }
         });
 

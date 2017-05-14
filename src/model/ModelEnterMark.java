@@ -42,17 +42,18 @@ public class ModelEnterMark {
 
     public void setCurrentGroupId(int currentGroupId) {
         this.currentGroupId = currentGroupId;
-        //notifyView();
+        notifyView();
     }
 
     public void LoadStudents() {
         // Read student list.
+        students.clear();
         try {
             ResultSet rs1 = s.execSqlWithReturn("SELECT * FROM student WHERE group_id=" + currentGroupId + ";");
             while (rs1.next()) {
                 ModelStudent student;
                 int s_id = rs1.getInt(rs1.findColumn("s_id"));
-                ResultSet rs2 = s.execSqlWithReturn("SELECT * FROM student_score WHERE s_id=" + s_id + ";");
+                ResultSet rs2 = s.execSqlWithReturn("SELECT * FROM student_score WHERE s_id=" + s_id + " AND eg_id=" + currentGroupId + ";");
                 if (rs2.next()) {
                     student = new ModelStudent(
                             this.currentGroupId,
@@ -88,6 +89,7 @@ public class ModelEnterMark {
     }
 
     public void LoadItems() {
+        items.clear();
         int[] itemIds = new int[5];
         try {
             ResultSet rs1 = s.execSqlWithReturn("SELECT * FROM evaluation_groups WHERE id=" + currentGroupId + ";");
@@ -130,7 +132,7 @@ public class ModelEnterMark {
             if (rs.next()) {
                 s.execSqlUpdate("UPDATE student_score SET " +
                         "item1_score=" + score1 +", item2_score=" + score2 + ", item3_score=" + score3 + ", " +
-                        "item4_score=" + score4 + ", item5_score=" + score5 + ", total_score=" + st + " WHERE s_id=" + s_id +";");
+                        "item4_score=" + score4 + ", item5_score=" + score5 + ", total_score=" + st + " WHERE s_id=" + s_id +" AND eg_id=" + currentGroupId + ";");
             }
             else {
                 s.execSqlNoReturn("INSERT INTO student_score(s_id, eg_id, item1_score, item2_score, item3_score, item4_score, item5_score, total_score) " +

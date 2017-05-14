@@ -64,7 +64,7 @@ public class ModelItemGroup {
         try {
             ResultSet rs = s.execSqlWithReturn("SELECT MAX(id) FROM evaluation_groups;");
             while (rs.next()) {
-                groupId = rs.getInt(0);
+                groupId = rs.getInt(1);
             }
         } catch (SQLiteConnectionInvalidException e) {
             e.printStackTrace();

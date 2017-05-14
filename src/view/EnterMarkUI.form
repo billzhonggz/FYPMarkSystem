@@ -76,12 +76,12 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="73814" class="javax.swing.JButton" binding="nextStudentBtn">
+              <component id="73814" class="javax.swing.JButton" binding="exportGradeReportBtn">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Next Student"/>
+                  <text value="Export Grade Report"/>
                 </properties>
               </component>
               <component id="320e0" class="javax.swing.JButton" binding="saveBtn">
@@ -92,12 +92,12 @@
                   <text value="Save Current Record"/>
                 </properties>
               </component>
-              <component id="db771" class="javax.swing.JButton" binding="previousStudentBtn">
+              <component id="7aff8" class="javax.swing.JButton" binding="addNewGroupButton" default-binding="true">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Previous Student"/>
+                  <text value="Add New Group"/>
                 </properties>
               </component>
             </children>

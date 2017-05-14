@@ -17,9 +17,8 @@ public class EnterMarkUI implements IModelListener {
     private JComboBox listGroupCB;
     private JTable enterMarkStuListTable;
     private JPanel EnterMarkPanel;
-    private JButton nextStudentBtn;
+    private JButton exportGradeReportBtn;
     private JButton saveBtn;
-    private JButton previousStudentBtn;
     private JButton logoutButton;
     private JLabel selectedStuId;
     private JFormattedTextField score1;
@@ -39,6 +38,7 @@ public class EnterMarkUI implements IModelListener {
     private JLabel item4Per;
     private JLabel item5Per;
     private JLabel totalScoreLabel;
+    private JButton addNewGroupButton;
 
     private ModelEnterMark mek;
     private ControllerEnterMark cek;
@@ -85,9 +85,23 @@ public class EnterMarkUI implements IModelListener {
                 totalScoreLabel.setText(Integer.toString(s.getTotalScore()));
             }
         });
+        addNewGroupButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                cek.addNewGroup();
+                frame.setVisible(false);
+                frame.dispose();
+            }
+        });
+        exportGradeReportBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                cek.forwardToExport();
+                frame.setVisible(false);
+                frame.dispose();
+            }
+        });
+
         saveBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // TODO: Calculate and forward total score.
                 int s1 = 0;
                 int s2 = 0;
                 int s3 = 0;
@@ -113,8 +127,7 @@ public class EnterMarkUI implements IModelListener {
                     cek.setScore(selectedId, s1, s2, s3, s4, s5, st);
                     totalScoreLabel.setText(Integer.toString(st));
                     JOptionPane.showMessageDialog(frame, "Score of " + selectedId + " saved. ");
-                }
-                else
+                } else
                     JOptionPane.showMessageDialog(frame, "Save failed: student not selected. ");
             }
         });

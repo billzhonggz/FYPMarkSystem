@@ -1,7 +1,11 @@
 package controller;
 
 import model.ModelEnterMark;
+import model.ModelExportReport;
+import model.ModelItemGroup;
 import model.ModelLogin;
+import view.AddItemUI;
+import view.ExportReportUI;
 import view.LoginUI;
 
 /**
@@ -36,7 +40,23 @@ public class ControllerEnterMark {
         mek.closeDB();
     }
 
+    public void addNewGroup() {
+        ModelItemGroup modelItemGroup = new ModelItemGroup();
+        ControllerItemGroup controllerItemGroup = new ControllerItemGroup(modelItemGroup);
+        AddItemUI addItemUI = new AddItemUI();
+        addItemUI.setMVC(modelItemGroup, controllerItemGroup);
+        mek.closeDB();
+    }
+
     public void forwardToExport() {
         //TODO: Forward to export.
+        ModelExportReport mer = new ModelExportReport();
+        mer.setStudents(mek.getStudents());
+        mer.setItems(mek.getItems());
+        mer.setCurrentGroupId(mek.getCurrentGroupId());
+        ControllerExportReport cer = new ControllerExportReport(mer);
+        ExportReportUI exportReportUI = new ExportReportUI();
+        exportReportUI.setMVC(mer, cer);
+        mek.closeDB();
     }
 }
