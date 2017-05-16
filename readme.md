@@ -3,6 +3,7 @@
 This is a group project for **Software Development Workshop III** and **Software Engineering** in Semester 2, 2016-2017 Academic Year of BNU-HKBU United International College. 
 
 * If you are looking this repository in Git@OSChina, please refer to the main repository on Github: https://github.com/billzhonggz/FYPMarkSystem
+* For executable files and user manual, please check `executable` folder. 
 
 ## Features
 
