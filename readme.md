@@ -7,7 +7,7 @@ This is a group project for **Software Development Workshop III** and **Software
 
 ## Features
 
-* All of the related data is store in a standalone SQLite .db file.
+* All of the related data is store in a standalone SQLite `.db` file.
 * Import student information with Excel file.
 * Add evaluation items with names and weighting (in %).
 * Edit marks of students for each evaluation items (in ABCDF level system).
@@ -22,7 +22,7 @@ This is a group project for **Software Development Workshop III** and **Software
 ## Issues
 
 * The amount of evaluation items is fixed as 12. 
-* SQLite create database is not available in this moment, do not delete the `fyp.db` file.
+* SQLite create database is not available at this moment, do not delete the `fyp.db` file.
 * User experience can be improved. 
 
 *This application is archived and there won't be any further improvement.*
